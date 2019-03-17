@@ -76,49 +76,49 @@ enum macro_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        TAB,     Q,     W,      E,    R,     T,                      Y,     U,     I,     O,     P,  H_AD,\
+        TAB,     Q,     W,      E,    R,     T,                      Y,     U,     I,     O,     P,  BSPC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LCTL,     A,     S,      D,    F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LSFT,     Z,     X,      C,    V,     B,                      N,     M,  COMM,   DOT,  SLSH,   ENT,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  LGUI, LALT,  RAISE,     LOWER, RALT, RGUI \
+                                  LGUI, LALT,  RAISE,     LOWER, RALT, H_AD \
                               //`--------------------'  `--------------------'
   ),
 
   [_LOWER] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        TAB,     1,     2,     3,     4,     5,                      6,     7,     8,     9,     0,  H_AD,\
+        TAB,     1,     2,     3,     4,     5,                      6,     7,     8,     9,     0,  BSPC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LCTL, XXXXX, XXXXX,  TILD,  PIPE, LBRC,                    RBRC,  MINS,  PLUS, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LSFT, XXXXX, XXXXX,   GRV,  BSLS, LCBR ,                   RCBR,  UNDS,   EQL, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  LGUI, LALT,  RAISE,     LOWER, RALT, RGUI \
+                                  LGUI, LALT,  RAISE,     LOWER, RALT, H_AD \
                               //`--------------------'  `--------------------'
   ),
 
   [_RAISE] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        TAB,  EXLM,    AT,  HASH,   DLR,  PERC,                   CIRC,  AMPR,  ASTR,  LPRN,  RPRN,  H_AD,\
+        TAB,  EXLM,    AT,  HASH,   DLR,  PERC,                   CIRC,  AMPR,  ASTR,  LPRN,  RPRN,  BSPC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LCTL, XXXXX, XXXXX,  TILD,  PIPE, LBRC,                    RBRC,  MINS,  PLUS, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LSFT, XXXXX, XXXXX,   GRV,  BSLS, LCBR ,                   RCBR,  UNDS,   EQL, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  LGUI, LALT,  RAISE,     LOWER, RALT, RGUI \
+                                  LGUI, LALT,  RAISE,     LOWER, RALT, H_AD \
                               //`--------------------'  `--------------------'
   ),
 
   [_ADJUST] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-       LTOG,  LRST,  LSAI,  MS_U, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX,  LMOD,  TRNS,\
+       LTOG,  LRST,  LSAI,  MS_U, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX,  LMOD,  BSPC,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LCTL,  LHUI,  MS_L,  MS_D,  MS_R,  PGUP,                  LVAI,  BTN1,  BTN2, XXXXX,    UP,   RST,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LSFT,  LHUD,  LSAD, XXXXX,  ACL2,  PGDN,                  LVAD, XXXXX, XXXXX,  LEFT,  DOWN, RIGHT,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  LGUI, LALT,  RAISE,     LOWER, RALT, RGUI \
+                                  LGUI, LALT,  RAISE,     LOWER, RALT,  TRNS \
                               //`--------------------'  `--------------------'
   )
 };
