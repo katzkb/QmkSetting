@@ -63,6 +63,7 @@ enum macro_keycodes {
 #define KC_ALTKN ALT_T(KC_LANG1)
 
 #define KC_ADJUST ADJUST
+#define KC_H_AD TG(_ADJUST)
 #define M_PU M(KC_M_PU)
 //#define M_PN M(KC_M_PN)
 //#define M_PG M(KC_M_PG)
@@ -75,7 +76,7 @@ enum macro_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        TAB,     Q,     W,      E,    R,     T,                      Y,     U,     I,     O,     P,ADJUST,\
+        TAB,     Q,     W,      E,    R,     T,                      Y,     U,     I,     O,     P,  H_AD,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LCTL,     A,     S,      D,    F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -87,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        ESC,     1,     2,     3,     4,     5,                      6,     7,     8,     9,     0,ADJUST,\
+        TAB,     1,     2,     3,     4,     5,                      6,     7,     8,     9,     0,  H_AD,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LCTL, XXXXX, XXXXX,  TILD,  PIPE, LBRC,                    RBRC,  MINS,  PLUS, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -99,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        ESC,  EXLM,    AT,  HASH,   DLR,  PERC,                   CIRC,  AMPR,  ASTR,  LPRN,  RPRN,ADJUST,\
+        TAB,  EXLM,    AT,  HASH,   DLR,  PERC,                   CIRC,  AMPR,  ASTR,  LPRN,  RPRN,  H_AD,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
        LCTL, XXXXX, XXXXX,  TILD,  PIPE, LBRC,                    RBRC,  MINS,  PLUS, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -111,11 +112,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_ADJUST] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        RST,  LRST, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
+       LTOG,  LRST,  LSAI,  MS_U, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX,  LMOD,  TRNS,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LTOG,  LHUI,  LSAI,  LVAI, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
+       LCTL,  LHUI,  MS_L,  MS_D,  MS_R,  PGUP,                  LVAI,  BTN1,  BTN2, XXXXX,    UP,   RST,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LMOD,  LHUD,  LSAD,  LVAD, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
+       LSFT,  LHUD,  LSAD, XXXXX,  ACL2,  PGDN,                  LVAD, XXXXX, XXXXX,  LEFT,  DOWN, RIGHT,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                   LGUI, LALT,  RAISE,     LOWER, RALT, RGUI \
                               //`--------------------'  `--------------------'
@@ -198,6 +199,7 @@ void iota_gfx_task_user(void) {
 
 static bool lower_pressed = false; // lower押されたフラグ
 static bool raise_pressed = false; // raise押されたフラグ
+// static bool adjust_pressed = false;
 static uint16_t lower_pressed_time = 0;
 static uint16_t raise_pressed_time = 0;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -220,11 +222,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         lower_pressed = true;
         lower_pressed_time = record->event.time;
         layer_on(_LOWER);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+        // update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
       } else {
         layer_off(_LOWER);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-        if (lower_pressed && (TIMER_DIFF_16(record->event.time, lower_pressed_time) < TAPPING_TERM)) {
+        // update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+        if (lower_pressed && (TIMER_DIFF_16(record->event.time, lower_pressed_time) < TAPPING_TERM+50)) {
           register_code(KC_SPC);
           unregister_code(KC_SPC);
         }
@@ -237,11 +239,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         raise_pressed = true;
         raise_pressed_time = record->event.time;
         layer_on(_RAISE);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+        // update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
       } else {
         layer_off(_RAISE);
-        update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
-        if (raise_pressed && (TIMER_DIFF_16(record->event.time, raise_pressed_time) < TAPPING_TERM)) {
+        // update_tri_layer_RGB(_LOWER, _RAISE, _ADJUST);
+        if (raise_pressed && (TIMER_DIFF_16(record->event.time, raise_pressed_time) < TAPPING_TERM+50)) {
           register_code(KC_SPC);
           unregister_code(KC_SPC);
         }
@@ -249,6 +251,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
+/*
     case ADJUST:
         if (record->event.pressed) {
           layer_on(_ADJUST);
@@ -257,7 +260,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         return false;
         break;
-
+*/
+    /*
     case RGB_MOD:
       #ifdef RGBLIGHT_ENABLE
         if (record->event.pressed) {
@@ -277,6 +281,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
       #endif
       break;
+    */
   }
   return true;
 }
@@ -284,7 +289,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 /*
  * Macro definition
  */
+/*
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
   return MACRO_NONE;
 }
+*/
