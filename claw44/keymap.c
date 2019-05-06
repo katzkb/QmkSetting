@@ -127,13 +127,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   
   [3] = LAYOUT( \
   //,--------+--------+--------+--------+--------+--------.   ,--------+--------+--------+--------+--------+--------.
-      RGB_TOG,   KC_NO, RGB_SAI, KC_MS_U,  M_CMDR,  M_CMDT,      M_CMDY,  M_CMDU,   KC_NO, RGB_TOG, RGB_MOD, KC_BSPC,\
+      RGB_TOG, KC_BTN1, KC_BTN2, KC_MS_U,  M_CMDR,  M_CMDT,      M_CMDY,  M_CMDU, RGB_SAI, RGB_TOG, RGB_MOD, KC_BSPC,\
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+-------+--------+--------|
-      KC_LCTL, RGB_HUI, KC_MS_L, KC_MS_D, KC_MS_R,  M_ALTV,    M_CMD_BK, KC_BTN1, KC_BTN2,M_CMD_FW,   KC_UP,   KC_NO,\
+      KC_LCTL, RGB_HUI, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D,    M_CMD_BK, KC_BTN1, KC_BTN2,M_CMD_FW,   KC_UP,   KC_NO,\
   //|--------+--------+--------+--------+--------+--------|   |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, RGB_HUD, RGB_SAD, KC_WH_L, KC_WH_R,  M_CTRV,     RGB_VAI, RGB_VAD,   KC_NO, KC_LEFT, KC_DOWN, KC_RGHT,\
+      KC_LSFT, RGB_HUD, KC_WH_R,   KC_NO, KC_WH_L, KC_WH_U,     RGB_VAI, RGB_VAD, RGB_SAD, KC_LEFT, KC_DOWN, KC_RGHT,\
   //`--------+--------+--------+--------+--------+--------/   \--------+--------+--------+--------+--------+--------'
-                      KC_LGUI,KC_LALT,LT(2,KC_SPC),KC_LCTL,     KC_RSFT,LT(1,KC_SPC),KC_RALT,KC_TRNS \
+                        KC_LGUI, KC_LALT, KC_ACL1, KC_LCTL,     KC_RSFT, KC_ACL0, KC_RALT, KC_TRNS \
   //                  `--------+--------+--------+--------'   `--------+--------+--------+--------'
   ),
 };
