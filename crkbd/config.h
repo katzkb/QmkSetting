@@ -46,23 +46,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define MOUSEKEY_MAX_SPEED 50
 //#define MOUSEKEY_TIME_TO_MAX 1
 
+#undef MOUSEKEY_DELAY
 #undef MOUSEKEY_INTERVAL
-#define MOUSEKEY_INTERVAL 0
-
-#undef MOUSEKEY_TIME_TO_MAX
-#define MOUSEKEY_TIME_TO_MAX 20
-
+#undef MOUSEKEY_MOVE_DELTA
 #undef MOUSEKEY_MAX_SPEED
-#define MOUSEKEY_MAX_SPEED 10
-
-#undef MOUSEKEY_WHEEL_TIME_TO_MAX
-#define MOUSEKEY_WHEEL_TIME_TO_MAX 10
+#undef MOUSEKEY_TIME_TO_MAX
 
 #undef MOUSEKEY_WHEEL_MAX_SPEED
-#define MOUSEKEY_WHEEL_MAX_SPEED 1
+#undef MOUSEKEY_WHEEL_TIME_TO_MAX
 
-#undef MOUSEKEY_MOVE_DELTA
-#define MOUSEKEY_MOVE_DELTA 5
+#define MOUSEKEY_DELAY       0  // マウスの移動を開始するまでの時間 48
+#define MOUSEKEY_INTERVAL    12 // マウス移動コマンドをPCに送信する頻度 24
+#define MOUSEKEY_MOVE_DELTA  5  // 一度の移動コマンドで移動する単位距離 3, 5
+#define MOUSEKEY_MAX_SPEED   11 // 押しっぱなしでどこまで加速するか 10
+#define MOUSEKEY_TIME_TO_MAX 10 // 最大速度になるまでの所要時間 20
 
-#undef MOUSEKEY_DELAY
-#define MOUSEKEY_DELAY 0
+#define MOUSEKEY_WHEEL_DELAY      72 // スクロール移動を開始するまでの時間 48
+#define MOUSEKEY_WHEEL_INTERVAL   72 // スクロール移動コマンドをPCに送信する頻度 24
+#define MOUSEKEY_WHEEL_MOVE_DELTA 1  // 一度の移動コマンドで移動する単位距離 3, 5
+
+#define MOUSEKEY_WHEEL_MAX_SPEED   1
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 1 //255

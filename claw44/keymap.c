@@ -23,8 +23,6 @@ enum custom_keycodes {
   M_CMDU,
   M_CMD_FW,
   M_CMD_BK,
-  M_CTRV,
-  M_ALTV,
   QWERTY,
   LOWER,
   RAISE
@@ -65,24 +63,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(SS_LGUI(SS_TAP(X_LEFT)));
         break;
     }
-  }
-  switch(keycode) {
-    case M_CTRV:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LCTRL(SS_DOWN(X_V)));
-        break;
-      } else {
-        SEND_STRING(SS_LCTRL(SS_UP(X_V)));
-        break;
-      }
-    case M_ALTV:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT(SS_DOWN(X_V)));
-        break;
-      } else {
-        SEND_STRING(SS_LALT(SS_UP(X_V)));
-        break;
-      }
   }
   return true;
 }
