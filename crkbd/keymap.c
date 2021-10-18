@@ -36,6 +36,11 @@ enum macro_keycodes {
   KC_SAMPLEMACRO,
 };
 
+//Tap Dance Declarations
+enum tap_dance_keycodes {
+  ESC = 0
+};
+
 #define KC_ KC_TRNS
 #define KC_RST RESET
 #define KC_L_SPC LT(_LOWER, KC_SPC) // lower
@@ -93,6 +98,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+// Tap Dance Definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+  // Tap once for Shift, twice for Esc
+  [ESC]  = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_ESC)
+  // In Layer declaration, add tap dance item in place of a key code
+  // TD(ESC) 
+};
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT( \
   //,-----------------------------------------------.                 ,-----------------------------------------------.
@@ -110,7 +124,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB,   KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,KC_BSPC,\
   //|-------+-------+-------+-------+-------+-------|                 |-------+-------+-------+-------+-------+-------|
      KC_LCTL,  KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,                    KC_F6,  KC_F7,  KC_F8,  KC_F9, KC_F10, KC_F11,\
-  //|- ------+-------+-------+-------+-------+-------|                 |-------+-------+-------+-------+-------+-------|
+  //|-------+-------+-------+-------+-------+-------|                 |-------+-------+-------+-------+-------+-------|
      KC_LSFT,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,                    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,\
   //|-------+-------+-------+-------+-------+-------|                 |-------+-------+-------+-------+-------+-------|
                              KC_LGUI, KC_LALT, LT(2,KC_SPC),   LT(1,KC_SPC),KC_S_JA, TG(3) \

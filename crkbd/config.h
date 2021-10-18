@@ -33,7 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define USE_SERIAL_PD2
 
 #define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 150
+#define TAPPING_TERM 200
 
 #undef RGBLED_NUM
 #define RGBLIGHT_ANIMATIONS
@@ -57,13 +57,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define MOUSEKEY_DELAY       0  // マウスの移動を開始するまでの時間 48
 #define MOUSEKEY_INTERVAL    12 // マウス移動コマンドをPCに送信する頻度 24
-#define MOUSEKEY_MOVE_DELTA  5  // 一度の移動コマンドで移動する単位距離 3, 5
-#define MOUSEKEY_MAX_SPEED   11 // 押しっぱなしでどこまで加速するか 10
-#define MOUSEKEY_TIME_TO_MAX 10 // 最大速度になるまでの所要時間 20
+#define MOUSEKEY_MOVE_DELTA  2  // 一度の移動コマンドで移動する単位距離 3, 5
+#define MOUSEKEY_MAX_SPEED   8 // 押しっぱなしでどこまで加速するか 10
+#define MOUSEKEY_TIME_TO_MAX 0 // 最大速度になるまでの所要時間 20
 
-#define MOUSEKEY_WHEEL_DELAY      72 // スクロール移動を開始するまでの時間 48
-#define MOUSEKEY_WHEEL_INTERVAL   72 // スクロール移動コマンドをPCに送信する頻度 24
-#define MOUSEKEY_WHEEL_MOVE_DELTA 1  // 一度の移動コマンドで移動する単位距離 3, 5
+#define MOUSEKEY_WHEEL_DELAY      48 // スクロール移動を開始するまでの時間 48
+#define MOUSEKEY_WHEEL_INTERVAL   48 // スクロール移動コマンドをPCに送信する頻度 24
+#define MOUSEKEY_WHEEL_MOVE_DELTA 3  // 一度の移動コマンドで移動する単位距離 3, 5
 
 #define MOUSEKEY_WHEEL_MAX_SPEED   1
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 1 //255
